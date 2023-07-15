@@ -9,6 +9,8 @@ import {
   Twitter,
   Youtube,
 } from "preact-feather";
+
+import BuyMeACoffee from '../icons/BuyMeACoffee.tsx'
 import SocialLinkWrapper from "./SocialLinkWrapper.tsx";
 
 import type Profile from "../profile.type.ts";
@@ -60,6 +62,11 @@ export default function SocialLinks(
         {socialAccounts?.dribbble && (
           <SocialLinkWrapper href={socialAccounts.dribbble}>
             <Dribbble {...svgProps} />
+          </SocialLinkWrapper>
+        )}
+        {socialAccounts?.buymeacoffee && (
+          <SocialLinkWrapper href={socialAccounts.buymeacoffee}>
+            <BuyMeACoffee {...svgProps} />
           </SocialLinkWrapper>
         )}
         {socialAccounts?.website && (
