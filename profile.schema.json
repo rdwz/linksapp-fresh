@@ -32,40 +32,45 @@
     "socialAccounts": {
       "type": "object",
       "properties": {
+        "buymeacoffee": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^(https)://(www.)?buymeacoffee.com/"
+        },
         "dribbble": {
           "type": "string",
           "format": "uri",
-          "pattern": "^(https)://dribbble.com/"
+          "pattern": "^(https)://(www.)?dribbble.com/"
         },
         "facebook": {
           "type": "string",
           "format": "uri",
-          "pattern": "^(https)://facebook.com/"
+          "pattern": "^(https)://(www.)?facebook.com/"
         },
         "github": {
           "type": "string",
           "format": "uri",
-          "pattern": "^(https)://github.com/"
+          "pattern": "^(https)://(www.)?github.com/"
         },
         "instagram": {
           "type": "string",
           "format": "uri",
-          "pattern": "^(https)://instagram.com/"
+          "pattern": "^(https)://(www.)?instagram.com/"
         },
         "linkedin": {
           "type": "string",
           "format": "uri",
-          "pattern": "^(https)://linkedin.com/"
+          "pattern": "^(https)://(www.)?linkedin.com/in/"
         },
         "twitter": {
           "type": "string",
           "format": "uri",
-          "pattern": "^(https)://twitter.com/"
+          "pattern": "^(https)://(www.)?twitter.com/"
         },
         "youtube": {
           "type": "string",
           "format": "uri",
-          "pattern": "^(https)://youtube.com/"
+          "pattern": "^(https)://(www.)?youtube.com/"
         },
         "website": {
           "type": "string",

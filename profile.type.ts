@@ -6,6 +6,7 @@ type Profile = {
   location?: string;
   readme?: string;
   socialAccounts: {
+    buymeacoffee?: string;
     dribbble?: string;
     facebook?: string;
     github?: string;
