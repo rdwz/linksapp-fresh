@@ -1,6 +1,6 @@
 import { MapPin } from "preact-feather";
 
-export default function LocationComponent(props: { location: string }) {
+export default function Location(props: { location: string }) {
   const { location } = props;
 
   return (

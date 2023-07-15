@@ -1,4 +1,4 @@
-export default function LocationIcon() {
+export default function Location() {
   return (
     <svg
       viewBox="0 0 16 16"

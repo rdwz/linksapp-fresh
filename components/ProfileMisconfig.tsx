@@ -1,6 +1,6 @@
 import { ComponentChildren } from "preact";
 
-export default function ProfileMisconfigComponent(
+export default function ProfileMisconfig(
   props: { children: ComponentChildren },
 ) {
   return (

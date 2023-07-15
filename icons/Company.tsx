@@ -1,4 +1,4 @@
-export default function CompanyIcon() {
+export default function Company() {
   return (
     <svg
       viewBox="0 0 16 16"

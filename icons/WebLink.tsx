@@ -1,4 +1,4 @@
-export default function LinkIcon() {
+export default function WebLink() {
   return (
     <svg
       aria-hidden="true"

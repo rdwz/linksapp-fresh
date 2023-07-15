@@ -1,6 +1,6 @@
 import { Star } from "preact-feather";
 
-export default function BannerComponent(
+export default function Banner(
   props: { title: string; text: string },
 ) {
   const { title, text } = props;

@@ -6,19 +6,19 @@
 
 ### Step 1: Fork
 
-[<kbd> <br> ✨ FORK THIS REPO ✨ <br> </kbd>](https://github.com/commune-org/linksapp-fresh/fork)
+[✨ FORK THIS REPO ✨](https://github.com/rdwz/linksapp-fresh/fork)
 
 ### Step 2: Run Setup Wizard
 
-```console
-deno run -A --unstable https://github.com/commune-org/linksapp-fresh/raw/main/setup.ts
+```sh
+deno run -A --unstable https://github.com/rdwz/linksapp-fresh/raw/main/setup.ts
 ```
 
 ### Step 3: Deploy
 
 Check your page locally:
 
-```console
+```sh
 deno task start
 ```
 
@@ -31,8 +31,8 @@ available at `https://$PROJECT_NAME.deno.dev`. You can also use a custom domain.
 Don't forget to clear Deno cache if you're re-running the setup wizard after a
 new release:
 
-```console
-deno cache --reload https://github.com/commune-org/linksapp-fresh/raw/main/setup.ts
+```sh
+deno cache --reload https://github.com/rdwz/linksapp-fresh/raw/main/setup.ts
 ```
 
 ### Features
@@ -46,3 +46,7 @@ deno cache --reload https://github.com/commune-org/linksapp-fresh/raw/main/setup
 ### Badges
 
 [![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
+
+### Acknowledgement
+
+this is a fork of [commune-os/linksapp-fresh](https://github.com/commune-os/linksapp-fresh)

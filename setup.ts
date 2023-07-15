@@ -4,7 +4,9 @@ try {
     console.log(red("💥 Directory ./linksapp-fresh/ already exists."));
     Deno.exit(1);
   }
-} catch {}
+} catch {
+  console.error()
+}
 
 import {
   Checkbox,
@@ -42,13 +44,6 @@ if (!cloneStatus.success) {
   Deno.exit(1);
 }
 
-const usernameErrorMessage = "Username not valid";
-const bioErrorMessage = "Bio not valid";
-const locationErrorMessage = "Location not valid";
-const feedErrorMessage = "RSS feed not valid";
-const urlErrorMessage = (domain: string) => (`URL format must be: ${domain}`);
-const mailErrorMessage = "Email address not valid";
-
 import {
   validateBio,
   validateDomain,
@@ -61,7 +56,7 @@ import {
   validateUsername,
 } from "./utils/validator.ts";
 
-import type Profile from "https://raw.githubusercontent.com/commune-org/linksapp-fresh/main/profile.type.ts";
+import type Profile from "https://raw.githubusercontent.com/rdwz/linksapp-fresh/main/profile.type.ts";
 
 const promoptResult = await prompt([{
   name: "username",
@@ -70,13 +65,8 @@ const promoptResult = await prompt([{
   minLength: 1,
   maxLength: 50,
   after: async ({ username }, next) => {
-    const passes = await validateUsername(username);
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(usernameErrorMessage));
-      await next("username"); // run prompt again
-    }
+    validateUsername(username);
+    await next();
   },
 }, {
   name: "avatar",
@@ -84,19 +74,8 @@ const promoptResult = await prompt([{
   type: Input,
   minLength: 7,
   after: async ({ avatar }, next) => {
-    const passes = await validateHttpsImage(avatar);
-    if (passes) {
-      await next();
-    } else {
-      console.log(
-        red(
-          urlErrorMessage(
-            "https://example.com/.../example.(jpg|jpeg|png|webp|avif|gif|svg)",
-          ),
-        ),
-      );
-      await next("avatar"); // run prompt again
-    }
+    validateHttpsImage(avatar);
+    await next();
   },
 }, {
   name: "bio",
@@ -105,13 +84,8 @@ const promoptResult = await prompt([{
   minLength: 1,
   maxLength: 128,
   after: async ({ bio }, next) => {
-    const passes = await validateBio(bio);
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(bioErrorMessage));
-      await next("bio"); // run prompt again
-    }
+    validateBio(bio);
+    await next();
   },
 }, {
   name: "location",
@@ -119,39 +93,24 @@ const promoptResult = await prompt([{
   type: Input,
   maxLength: 128,
   after: async ({ location }, next) => {
-    const passes = await validateLocation(location);
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(locationErrorMessage));
-      await next("location"); // run prompt again
-    }
+    validateLocation(location);
+    await next();
   },
 }, {
   name: "readme",
   message: "README.md (optional):",
   type: Input,
   after: async ({ readme }, next) => {
-    const passes = await validateHttpsMarkdown(readme);
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(urlErrorMessage("https://example.com/.../example.md")));
-      await next("readme"); // run prompt again
-    }
+    validateHttpsMarkdown(readme);
+    await next();
   },
 }, {
   name: "rss",
   message: "RSS feed (optional):",
   type: Input,
   after: async ({ rss }, next) => {
-    const passes = await validateFeed(rss);
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(feedErrorMessage));
-      await next("rss"); // run prompt again
-    }
+    validateFeed(rss);
+    await next();
   },
 }, {
   name: "socialAccounts",
@@ -181,13 +140,8 @@ const promoptResult = await prompt([{
     }
   },
   after: async ({ dribbble }, next) => {
-    const passes = await validateDomain(dribbble, "dribbble.com");
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(urlErrorMessage("https://dribbble.com/username")));
-      await next("dribbble"); // run prompt again
-    }
+    validateDomain(dribbble, "dribbble.com");
+    await next();
   },
 }, {
   name: "facebook",
@@ -202,13 +156,8 @@ const promoptResult = await prompt([{
     }
   },
   after: async ({ facebook }, next) => {
-    const passes = await validateDomain(facebook, "facebook.com");
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(urlErrorMessage("https://facebook.com/username")));
-      await next("facebook"); // run prompt again
-    }
+    validateDomain(facebook, "facebook.com");
+    await next();
   },
 }, {
   name: "github",
@@ -223,13 +172,8 @@ const promoptResult = await prompt([{
     }
   },
   after: async ({ github }, next) => {
-    const passes = await validateDomain(github, "github.com");
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(urlErrorMessage("https://github.com/username")));
-      await next("github"); // run prompt again
-    }
+    validateDomain(github, "github.com");
+    await next();
   },
 }, {
   name: "instagram",
@@ -244,13 +188,8 @@ const promoptResult = await prompt([{
     }
   },
   after: async ({ instagram }, next) => {
-    const passes = await validateDomain(instagram, "instagram.com");
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(urlErrorMessage("https://www.instagram.com/username")));
-      await next("instagram"); // run prompt again
-    }
+    validateDomain(instagram, "instagram.com");
+    await next();
   },
 }, {
   name: "linkedin",
@@ -265,13 +204,8 @@ const promoptResult = await prompt([{
     }
   },
   after: async ({ linkedin }, next) => {
-    const passes = await validateDomain(linkedin, "linkedin.com");
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(urlErrorMessage("https://linkedin.com/username")));
-      await next("linkedin"); // run prompt again
-    }
+    validateDomain(linkedin, "linkedin.com");
+    await next();
   },
 }, {
   name: "twitter",
@@ -286,13 +220,8 @@ const promoptResult = await prompt([{
     }
   },
   after: async ({ twitter }, next) => {
-    const passes = await validateDomain(twitter, "twitter.com");
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(urlErrorMessage("https://twitter.com/username")));
-      await next("twitter"); // run prompt again
-    }
+    validateDomain(twitter, "twitter.com");
+    await next();
   },
 }, {
   name: "youtube",
@@ -307,13 +236,8 @@ const promoptResult = await prompt([{
     }
   },
   after: async ({ youtube }, next) => {
-    const passes = await validateDomain(youtube, "youtube.com");
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(urlErrorMessage("https://youtube.com/username")));
-      await next("youtube"); // run prompt again
-    }
+    validateDomain(youtube, "youtube.com");
+    await next();
   },
 }, {
   name: "website",
@@ -328,13 +252,8 @@ const promoptResult = await prompt([{
     }
   },
   after: async ({ website }, next) => {
-    const passes = await validateHttps(website);
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(urlErrorMessage("https://example.com/")));
-      await next("website"); // run prompt again
-    }
+    validateHttps(website);
+    await next();
   },
 }, {
   name: "mail",
@@ -349,13 +268,8 @@ const promoptResult = await prompt([{
     }
   },
   after: async ({ mail }, next) => {
-    const passes = await validateMail(mail);
-    if (passes) {
-      await next();
-    } else {
-      console.log(red(mailErrorMessage));
-      await next("mail"); // run prompt again
-    }
+    validateMail(mail);
+    await next();
   },
 }, {
   name: "isBanner",
@@ -415,7 +329,7 @@ const {
 
 const profile: Profile = {
   $schema:
-    "https://raw.githubusercontent.com/commune-org/linksapp-fresh/main/profile.schema.json",
+    "https://raw.githubusercontent.com/rdwz/linksapp-fresh/main/profile.schema.json",
   avatar: avatar!,
   username: username!,
   bio: bio!,
@@ -453,13 +367,8 @@ while (addLinks) {
     message: "Link URL:",
     minLength: 7,
     after: async ({ url }, next) => {
-      const passes = await validateHttps(url);
-      if (passes) {
-        await next();
-      } else {
-        console.log(red(urlErrorMessage("https://example.com/...")));
-        await next("url"); // run prompt again
-      }
+      validateHttps(url);
+      await next();
     },
   }]);
   profile.links.push({ url: link.url!, title: link.title! });

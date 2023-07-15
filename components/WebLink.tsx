@@ -1,6 +1,6 @@
 import { Link } from "preact-feather";
 
-export default function LinkComponent(
+export default function WebLink(
   props: { link: { url: string; title: string } },
 ) {
   const { link } = props;

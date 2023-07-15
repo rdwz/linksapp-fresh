@@ -22,7 +22,7 @@ const markdownRule = [isString, match(/^https:\/\/.+\.(md)$/)];
 const rssRule = [isString, match(/^(https):\/\//)];
 const domainRule = (
   domain: string,
-) => [required, isString, match(new RegExp(`^(https):\/\/${domain}\/`))];
+) => [required, isString, match(new RegExp(`^(https)://${domain}/`))];
 const mailRule = [required, isEmail];
 
 const validateHttps = async (url: string | undefined) => {

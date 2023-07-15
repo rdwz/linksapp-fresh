@@ -6,7 +6,7 @@ const options: Intl.DateTimeFormatOptions = {
   day: "numeric",
 };
 
-export default function FeedEntryComponent(
+export default function FeedEntry(
   props: {
     entry: {
       title: string;

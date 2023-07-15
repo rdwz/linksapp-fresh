@@ -1,4 +1,4 @@
-export default function BioComponent(props: { bio: string }) {
+export default function Bio(props: { bio: string }) {
   const { bio } = props;
 
   return (

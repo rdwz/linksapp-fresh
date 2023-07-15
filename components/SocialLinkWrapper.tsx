@@ -1,6 +1,6 @@
 import { ComponentChildren } from "preact";
 
-export default function SocialLinkWrapperComponent(props: {
+export default function SocialLinkWrapper(props: {
   href: string;
   children: ComponentChildren;
   target?: string;

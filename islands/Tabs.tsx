@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 
-import LinkComponent from "../components/LinkComponent.tsx";
-import FeedEntryComponent from "../components/FeedEntryComponent.tsx";
+import WebLink from "../components/WebLink.tsx";
+import FeedEntry from "../components/FeedEntry.tsx";
 
 import { FileText, List } from "preact-feather";
 
@@ -23,7 +23,7 @@ interface TabsProps {
   }[] | undefined;
 }
 
-export default function TabsIsland(props: TabsProps) {
+export default function Tabs(props: TabsProps) {
   const [openTab, setOpenTab] = useState(1);
 
   const { links, feed } = props;
@@ -88,7 +88,7 @@ export default function TabsIsland(props: TabsProps) {
                         </h2>
                       </div>
                     )}
-                  {links.map((link) => <LinkComponent link={link} />)}
+                  {links.map((link) => <WebLink link={link} />)}
                 </ul>
               </div>
               {feed && (
@@ -104,7 +104,7 @@ export default function TabsIsland(props: TabsProps) {
                     )}
                   {feed.slice().sort((a, b) =>
                     (new Date(b.date)).getTime() - (new Date(a.date)).getTime()
-                  ).map((entry) => <FeedEntryComponent entry={entry} />)}
+                  ).map((entry) => <FeedEntry entry={entry} />)}
                 </div>
               )}
             </div>

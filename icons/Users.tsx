@@ -1,4 +1,4 @@
-export default function UsersIcon() {
+export default function Users() {
   return (
     <svg
       aria-hidden="true"

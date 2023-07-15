@@ -1,6 +1,6 @@
 import { PageProps, Handlers } from "$fresh/server.ts";
 import {  fetchFollowings } from "../../../services/github.ts";
-import GithubLayout from "../../../layouts/GithubLayout.tsx";
+import Layout from "../../../layouts/Layout.tsx";
 import User from "../../../components/github/User.tsx";
 import PageTitle from "../../../components/github/PageTitle.tsx";
 import { Status } from "https://deno.land/std@0.146.0/http/http_status.ts";
@@ -17,7 +17,7 @@ export const handler: Handlers = {
           },
         });
       }
-      const followings = await fetchFollowings(username);
+      const followings = fetchFollowings(username);
 
       return ctx.render({ followings });
     } catch (error) {
@@ -39,7 +39,7 @@ export default function Followers({
   const followings = data?.followings;
   const username = params.username;
   return (
-    <GithubLayout title={`${username} | Followings`}>
+    <Layout title={`${username} | Followings`}>
       <div class="max-w-5xl mx-auto ">
         <PageTitle title="Followings" backHref={`/github/${username}`} />
         <div class={`grid grid-cols-1 md:grid-cols-3 gap-4 mt-4`}>
@@ -53,6 +53,6 @@ export default function Followers({
           ))}
         </div>
       </div>
-    </GithubLayout>
+    </Layout>
   );
 }

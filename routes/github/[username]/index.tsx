@@ -1,17 +1,17 @@
 import { PageProps, Handlers } from "$fresh/server.ts";
 import { fetchUserInfo } from "../../../services/github.ts";
-import GithubLayout from "../../../layouts/GithubLayout.tsx";
+import Layout from "../../../layouts/Layout.tsx";
 import InfoItem from "../../../components/github/InfoItem.tsx";
-import LocationIcon from "../../../icons/LoctionIcon.tsx";
-import CompanyIcon from "../../../icons/CompanyIcon.tsx";
-import LinkIcon from "../../../icons/LinkIcon.tsx";
-import TwitterIcon from "../../../icons/TwitterIcon.tsx";
-import UsersIcon from "../../../icons/UsersIcon.tsx";
+import Location from "../../../icons/Loction.tsx";
+import Company from "../../../icons/Company.tsx";
+import WebLink from "../../../icons/WebLink.tsx";
+import Twitter from "../../../icons/Twitter.tsx";
+import Users from "../../../icons/Users.tsx";
 import { Status } from "https://deno.land/std@0.146.0/http/http_status.ts";
 import PageTitle from "../../../components/github/PageTitle.tsx";
 
 export const handler: Handlers = {
-  async GET(_, ctx) {
+  GET(_, ctx) {
     try {
       const username = ctx.params.username;
       if (!username) {
@@ -22,7 +22,7 @@ export const handler: Handlers = {
           },
         });
       }
-      const user = await fetchUserInfo(username);
+      const user = fetchUserInfo(username);
       return ctx.render({ user });
     } catch (error) {
       console.error(error);
@@ -39,7 +39,7 @@ export default function Github({ data, params }: PageProps) {
   const user = data?.user;
   const username = params.username;
   return (
-    <GithubLayout title={`Github | ${username}`}>
+    <Layout title={`Github | ${username}`}>
       <div class={`max-w-3xl mx-auto`}>
         <PageTitle backHref="/" />
         <div class="mt-6">
@@ -62,7 +62,7 @@ export default function Github({ data, params }: PageProps) {
                 class={`flex items-center space-x-1 group`}
               >
                 <div class={`text-gray-600 group-hover:text-blue-500`}>
-                  <UsersIcon />
+                  <Users />
                 </div>
                 <p class={`font-medium group-hover:text-blue-500`}>
                   {user.followers}
@@ -91,7 +91,7 @@ export default function Github({ data, params }: PageProps) {
                   text={user.company}
                   icon={
                     <div class={`text-gray-600`}>
-                      <CompanyIcon />
+                      <Company />
                     </div>
                   }
                 />
@@ -101,7 +101,7 @@ export default function Github({ data, params }: PageProps) {
                   text={user.location}
                   icon={
                     <div class={`text-gray-600`}>
-                      <LocationIcon />
+                      <Location />
                     </div>
                   }
                 />
@@ -112,7 +112,7 @@ export default function Github({ data, params }: PageProps) {
                   text={user.blog}
                   icon={
                     <div class={`text-gray-600`}>
-                      <LinkIcon />
+                      <WebLink />
                     </div>
                   }
                 />
@@ -123,7 +123,7 @@ export default function Github({ data, params }: PageProps) {
                   text={`@${user.twitter_username}`}
                   icon={
                     <div class={`text-gray-600`}>
-                      <TwitterIcon />
+                      <Twitter />
                     </div>
                   }
                 />
@@ -144,7 +144,7 @@ export default function Github({ data, params }: PageProps) {
           </ul>
         </div>
       </div>
-    </GithubLayout>
+    </Layout>
   );
 }
 

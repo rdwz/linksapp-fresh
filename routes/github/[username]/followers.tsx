@@ -1,12 +1,12 @@
 import { PageProps, Handlers } from "$fresh/server.ts";
 import { fetchFollowers } from "../../../services/github.ts";
-import GithubLayout from "../../../layouts/GithubLayout.tsx";
+import Layout from "../../../layouts/Layout.tsx";
 import User from "../../../components/github/User.tsx";
 import PageTitle from "../../../components/github/PageTitle.tsx";
 import { Status } from "https://deno.land/std@0.146.0/http/http_status.ts";
 
 export const handler: Handlers = {
-  async GET(req, ctx) {
+  GET(req, ctx) {
     try {
       const username = ctx.params.username;
       if (!username) {
@@ -17,7 +17,7 @@ export const handler: Handlers = {
           },
         });
       }
-      const followers = await fetchFollowers(username);
+      const followers = fetchFollowers(username);
 
       return ctx.render({ followers });
     } catch (error) {
@@ -39,7 +39,7 @@ export default function Followers({
   const followers = data?.followers;
   const username = params.username;
   return (
-    <GithubLayout title={`${username} | Followers`}>
+    <Layout title={`${username} | Followers`}>
       <div class="max-w-5xl mx-auto ">
         <PageTitle title="Followers" backHref={`/github/${username}`} />
         <div class={`grid grid-cols-1 md:grid-cols-3 gap-4 mt-4`}>
@@ -53,6 +53,6 @@ export default function Followers({
           ))}
         </div>
       </div>
-    </GithubLayout>
+    </Layout>
   );
 }

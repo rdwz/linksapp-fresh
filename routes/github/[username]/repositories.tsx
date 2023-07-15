@@ -1,7 +1,7 @@
 import { PageProps, Handlers } from "$fresh/server.ts";
 import { fetchRepositories } from "../../../services/github.ts";
 import Repository from "../../../components/github/Repository.tsx";
-import GithubLayout from "../../../layouts/GithubLayout.tsx";
+import Layout from "../../../layouts/Layout.tsx";
 import PageTitle from "../../../components/github/PageTitle.tsx";
 import { Status } from "https://deno.land/std@0.146.0/http/http_status.ts";
 
@@ -17,7 +17,7 @@ export const handler: Handlers = {
           },
         });
       }
-      const repos = await fetchRepositories(username);
+      const repos = fetchRepositories(username);
       return ctx.render({ repos });
     } catch (error) {
       console.error(error);
@@ -38,7 +38,7 @@ export default function Repositories({
   const repos = data?.repos;
   const username = params.username;
   return (
-    <GithubLayout title={`${username} | Repository`}>
+    <Layout title={`${username} | Repository`}>
       <div class={`max-w-5xl mx-auto `}>
         <PageTitle title="Repositories" backHref={`/github/${username}`} />
         <div class={`grid grid-cols-1 md:grid-cols-2 gap-4 mt-4`}>
@@ -57,6 +57,6 @@ export default function Repositories({
           ))}
         </div>
       </div>
-    </GithubLayout>
+    </Layout>
   );
 }

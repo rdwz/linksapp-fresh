@@ -9,11 +9,11 @@ import {
   Twitter,
   Youtube,
 } from "preact-feather";
-import SocialLinkWrapperComponent from "./SocialLinkWrapperComponent.tsx";
+import SocialLinkWrapper from "./SocialLinkWrapper.tsx";
 
 import type Profile from "../profile.type.ts";
 
-export default function SocialLinksComponent(
+export default function SocialLinks(
   props: { socialAccounts: Profile["socialAccounts"] },
 ) {
   const { socialAccounts } = props;
@@ -28,49 +28,49 @@ export default function SocialLinksComponent(
     <div>
       <div class="flex justify-center mb-6 space-x-2">
         {socialAccounts?.twitter && (
-          <SocialLinkWrapperComponent href={socialAccounts.twitter}>
+          <SocialLinkWrapper href={socialAccounts.twitter}>
             <Twitter {...svgProps} />
-          </SocialLinkWrapperComponent>
+          </SocialLinkWrapper>
         )}
         {socialAccounts?.instagram && (
-          <SocialLinkWrapperComponent href={socialAccounts.instagram}>
+          <SocialLinkWrapper href={socialAccounts.instagram}>
             <Instagram {...svgProps} />
-          </SocialLinkWrapperComponent>
+          </SocialLinkWrapper>
         )}
         {socialAccounts?.youtube && (
-          <SocialLinkWrapperComponent href={socialAccounts.youtube}>
+          <SocialLinkWrapper href={socialAccounts.youtube}>
             <Youtube {...svgProps} />
-          </SocialLinkWrapperComponent>
+          </SocialLinkWrapper>
         )}
         {socialAccounts?.linkedin && (
-          <SocialLinkWrapperComponent href={socialAccounts.linkedin}>
+          <SocialLinkWrapper href={socialAccounts.linkedin}>
             <Linkedin {...svgProps} />
-          </SocialLinkWrapperComponent>
+          </SocialLinkWrapper>
         )}
         {socialAccounts?.facebook && (
-          <SocialLinkWrapperComponent href={socialAccounts.facebook}>
+          <SocialLinkWrapper href={socialAccounts.facebook}>
             <Facebook {...svgProps} />
-          </SocialLinkWrapperComponent>
+          </SocialLinkWrapper>
         )}
         {socialAccounts?.github && (
-          <SocialLinkWrapperComponent target="_self" href={socialAccounts.github}>
+          <SocialLinkWrapper target="_self" href={socialAccounts.github}>
             <Github {...svgProps} />
-          </SocialLinkWrapperComponent>
+          </SocialLinkWrapper>
         )}
         {socialAccounts?.dribbble && (
-          <SocialLinkWrapperComponent href={socialAccounts.dribbble}>
+          <SocialLinkWrapper href={socialAccounts.dribbble}>
             <Dribbble {...svgProps} />
-          </SocialLinkWrapperComponent>
+          </SocialLinkWrapper>
         )}
         {socialAccounts?.website && (
-          <SocialLinkWrapperComponent href={socialAccounts.website}>
+          <SocialLinkWrapper href={socialAccounts.website}>
             <Globe {...svgProps} />
-          </SocialLinkWrapperComponent>
+          </SocialLinkWrapper>
         )}
         {socialAccounts?.mail && (
-          <SocialLinkWrapperComponent href={`mailto:${socialAccounts.mail}`}>
+          <SocialLinkWrapper href={`mailto:${socialAccounts.mail}`}>
             <Mail {...svgProps} />
-          </SocialLinkWrapperComponent>
+          </SocialLinkWrapper>
         )}
       </div>
     </div>
