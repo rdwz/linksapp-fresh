@@ -1,12 +1,12 @@
 import { PageProps, Handlers } from "$fresh/server.ts";
-import {  fetchFollowings } from "../../../services/github.ts";
+import { fetchFollowings } from "../../../services/github.ts";
 import Layout from "../../../layouts/Layout.tsx";
 import User from "../../../components/github/User.tsx";
 import PageTitle from "../../../components/github/PageTitle.tsx";
 import { Status } from "https://deno.land/std@0.146.0/http/http_status.ts";
 
 export const handler: Handlers = {
-  async GET(req, ctx) {
+  GET(req, ctx) {
     try {
       const username = ctx.params.username;
       if (!username) {

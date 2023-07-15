@@ -2,24 +2,26 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/_middleware.ts";
-import * as $1 from "./routes/github/[username]/followers.tsx";
-import * as $2 from "./routes/github/[username]/followings.tsx";
-import * as $3 from "./routes/github/[username]/index.tsx";
-import * as $4 from "./routes/github/[username]/repositories.tsx";
-import * as $5 from "./routes/index.tsx";
-import * as $6 from "./routes/readme.tsx";
+import * as $0 from "./routes/github/[username]/followers.tsx";
+import * as $1 from "./routes/github/[username]/followings.tsx";
+import * as $2 from "./routes/github/[username]/index.tsx";
+import * as $3 from "./routes/github/[username]/repositories.tsx";
+import * as $4 from "./routes/index.tsx";
+import * as $5 from "./routes/readme.tsx";
+import * as $6 from "./routes/stats/api/event.ts";
+import * as $7 from "./routes/stats/js/script.js.ts";
 import * as $$0 from "./islands/Tabs.tsx";
 
 const manifest = {
   routes: {
-    "./routes/_middleware.ts": $0,
-    "./routes/github/[username]/followers.tsx": $1,
-    "./routes/github/[username]/followings.tsx": $2,
-    "./routes/github/[username]/index.tsx": $3,
-    "./routes/github/[username]/repositories.tsx": $4,
-    "./routes/index.tsx": $5,
-    "./routes/readme.tsx": $6,
+    "./routes/github/[username]/followers.tsx": $0,
+    "./routes/github/[username]/followings.tsx": $1,
+    "./routes/github/[username]/index.tsx": $2,
+    "./routes/github/[username]/repositories.tsx": $3,
+    "./routes/index.tsx": $4,
+    "./routes/readme.tsx": $5,
+    "./routes/stats/api/event.ts": $6,
+    "./routes/stats/js/script.js.ts": $7,
   },
   islands: {
     "./islands/Tabs.tsx": $$0,

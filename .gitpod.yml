@@ -1,0 +1,6 @@
+# Commands that will run on workspace start
+tasks:
+    - name: Setup, Install & Build
+      before: curl -fsSL https://deno.land/x/install/install.sh | sh
+      init: deno install --allow-all --no-check -r -f https://deno.land/x/deploy/deployctl.ts
+      command: deno task start

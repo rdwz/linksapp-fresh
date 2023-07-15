@@ -36,7 +36,7 @@ export default function Tabs(props: TabsProps) {
             class="flex bg-gray-100 mb-0 list-none flex-wrap px-1 py-1 flex-row rounded-xl"
             role="tablist"
           >
-            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center" role="tab">
               <a
                 class={`rounded-lg text-xs font-bold px-1 py-1 block leading-normal ${
                   openTab === 1
@@ -49,12 +49,11 @@ export default function Tabs(props: TabsProps) {
                 }}
                 data-toggle="tab"
                 href="#"
-                role="tablist"
               >
                 Links
               </a>
             </li>
-            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+            <li class="-mb-px mr-2 last:mr-0 flex-auto text-center" role="tab">
               <a
                 class={`rounded-lg text-xs font-bold px-1 py-1 block leading-normal ${
                   openTab === 2
@@ -67,7 +66,6 @@ export default function Tabs(props: TabsProps) {
                 }}
                 data-toggle="tab"
                 href="#"
-                role="tablist"
               >
                 Feed
               </a>

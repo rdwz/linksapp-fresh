@@ -2,7 +2,7 @@
 
 ![screen_recording](https://user-images.githubusercontent.com/19251998/198886868-0bd8affb-8f0c-445b-b31e-0e122697c751.gif)
 
-## Usage
+## Getting Started
 
 ### Step 1: Fork
 
@@ -43,10 +43,16 @@ deno cache --reload https://github.com/rdwz/linksapp-fresh/raw/main/setup.ts
 - External links
 - RSS feed
 
-### Badges
+## License
+
+This project is licensed under the Blue Oak Model License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+Inspiration, code snippets, etc.
+
+- forked from [commune-os/linksapp-fresh](https://github.com/commune-os/linksapp-fresh)
+- [Deno Fresh Middleware: HTTP Security Headers](https://rodneylab.com/deno-fresh-middleware/)
+- [README-Template.md](https://gist.githubusercontent.com/DomPizzie/7a5ff55ffa9081f2de27c315f5018afc/raw/d59043abbb123089ad6602aba571121b71d91d7f/README-Template.md)
 
 [![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
-
-### Acknowledgement
-
-this is a fork of [commune-os/linksapp-fresh](https://github.com/commune-os/linksapp-fresh)
