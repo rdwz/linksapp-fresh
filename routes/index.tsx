@@ -1,4 +1,6 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { Head } from "$fresh/runtime.ts";
+
 import jsonProfile from "../profile.json" assert { type: "json" };
 import type Profile from "../profile.type.ts";
 
@@ -89,22 +91,32 @@ export default function Home({ data }: PageProps<HandlerProps | null>) {
   }
 
   return (
-    <main class="w-10/12 sm:w-96 mx-auto">
-      <div class="flex flex-col w-full mt-12 mb-28">
-        <div class="flex flex-col items-center w-full w-full rounded-xl p-4">
-          <Avatar avatar={githubProfile.avatar_url} />
-          <Username username={githubProfile.login} />
-          <Bio bio={githubProfile.bio} />
-          {location && <Location location={githubProfile.location} />}
-          {readme && <ReadmeButton />}
-          <div class="mb-4"></div>
-          <SocialLinks socialAccounts={socialAccounts} />
-          {banner && (
-            <Banner title={banner.title} text={banner.text} />
-          )}
-          <Tabs links={links} feed={feed} />
+    <html>
+      <Head>
+        <script
+          defer
+          src="/stats/js/script.js"
+          data-api="/stats/api/event"
+          data-domain="linksapp.deno.dev"
+        ></script>
+      </Head>
+      <main class="w-10/12 sm:w-96 mx-auto">
+        <div class="flex flex-col w-full mt-12 mb-28">
+          <div class="flex flex-col items-center w-full w-full rounded-xl p-4">
+            <Avatar avatar={githubProfile.avatar_url} />
+            <Username username={githubProfile.login} />
+            <Bio bio={githubProfile.bio} />
+            {location && <Location location={githubProfile.location} />}
+            {readme && <ReadmeButton />}
+            <div class="mb-4"></div>
+            <SocialLinks socialAccounts={socialAccounts} />
+            {banner && (
+              <Banner title={banner.title} text={banner.text} />
+              )}
+            <Tabs links={links} feed={feed} />
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </html>
   );
 }
