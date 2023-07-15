@@ -99,6 +99,8 @@ export default function Home({ data }: PageProps<HandlerProps | null>) {
           data-api="/stats/api/event"
           data-domain="linksapp.deno.dev"
         ></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
       </Head>
       <main class="w-10/12 sm:w-96 mx-auto">
         <div class="flex flex-col w-full mt-12 mb-28">
